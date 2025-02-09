@@ -44,7 +44,7 @@ export default defineConfig({
         {text: '后端',link: '/markdown/'},
         {text: '数据库',link: '/markdown/Web-md/SQL'}
       ]},
-      {text: '3D',link: '/markdown/3D-md/index'},
+      {text: '绘图',link: '/markdown/3D-md/index'},
       { text: '工具语法', link: '/markdown/Url-md/url' },
     ],
     // sidebar: [

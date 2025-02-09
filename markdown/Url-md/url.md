@@ -20,9 +20,11 @@
 
 <https://vitepress.dev/>
 
-## ChatGPT
+## OpenAI
 
-<https://chatgpt.com/>
+[ChatGPT](https://chatgpt.com/)
+
+[DeepSeek](https://www.deepseek.com)
 
 ## Icon
 
