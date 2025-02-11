@@ -32,4 +32,10 @@
 
 <https://icones.js.org/>
 
-<https://www.iconfont.cn/>
+[阿里图标](https://www.iconfont.cn/)
+
+[开源插图网站](https://undraw.co/)
+
+[设计灵感网站](https://dribbble.com/shots/popular/animation)
+
+[解析正则表达式](https://ihateregex.io/)
