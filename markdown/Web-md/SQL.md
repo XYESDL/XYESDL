@@ -20,9 +20,6 @@ CREATE TABLE table_name (
 );
 ```
 
-
-
-
 ## 可视化工具
 
 [Navicat](https://www.navicat.com.cn/)

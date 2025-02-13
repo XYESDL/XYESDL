@@ -18,6 +18,7 @@ pnpm config set registry https://registry.npmmirror.com/
   数据查找过滤:前端过滤、后端过滤
 
 ## 组件注册
+
 ```vue
   在使用<script setup>语法，不需要显式注册组件
   export const deletet = (id: number ) => {
