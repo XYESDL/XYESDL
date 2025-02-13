@@ -84,7 +84,7 @@ X-USB连接配置
 
 [国外软件SMAART](https://www.rationalacoustics.com/pages/smaart-home)
 
-![vos4](qx.jpg)
+![vos4](/qx.jpg)
 
 ```vue
 连接测量麦克风、声卡
