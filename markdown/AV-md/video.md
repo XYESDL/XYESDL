@@ -1,9 +1,15 @@
 # 视频技术
 
-NDI、SDVOE、Dante AV
+NDI、SDVOE、Dante AV、RTMP、RTSP
+
+工具VLC
 
 ## LED大屏
 
+发送卡、接收卡、拼接控制器
+
+[VMIX](https://www.vmix.com/)
+[OBS](https://obsproject.com/)
 ## 摄像机
 
 # 舞台灯光

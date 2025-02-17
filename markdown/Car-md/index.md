@@ -22,23 +22,36 @@ B站UP[11磅小老虎](https://space.bilibili.com/480670986?spm_id_from=333.337.
 
 ## 油
 
+### 机油
+
 | 品牌 | 型号 | 
 | :----: | :---: |
-| 港壳 |  |
-| 美孚 |  |
+| 港壳 | 超凡SP/GF-6A 0W20 |
+| 美孚 | ESP 0W20 |
+
+### 变速箱油
+
+| 品牌 | 型号 | 
+| :----: | :---: |
+| FORD | ULV 10速 |
 
 
 ## OBD
 
 Ford OBD软件[Forscan](https://forscan.org/)
+
 ```vue
-Bate固件更新需完整订阅、软件可试用、论坛
+Bate固件更新需完整订阅、软件可试用
 ```
+
 手机软件[Forscan lite](https://forscan.org/download.html)
+
 ```vue
 安卓软件Demo版本Free(部分功能受限)
 ```
+
 OBD适配器[Vgate](https://www.vgatemall.com/)
+
 ```vue
 Vlinker FS USB(可以OTG连接安卓Forscan lite)、BT
 ```
