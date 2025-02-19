@@ -1,27 +1,39 @@
 # 网络
 
+192.168.10.1/24
+
+常见CIDR表示法
+|CIDR|子网掩码|可用IP数量|
+|:----:|:---:|:---:|
+|/24|255.255.255.0|254|
+|/25|255.255.255.128|126|
+|/26|255.255.255.192|62|
+|/30|255.255.255.252|2|
+
+|VLAN作用|影响|
+|:----|:---|
+|减少广播域	|降低广播风暴风险，提高网络效率|
+|提升安全性	|默认不同 VLAN 不能互通，可用 ACL 控制访问|
+|便于管理	|设备按部门/用途划分，配置更清晰|
+|灵活部署	|设备不受物理位置限制，随时加入合适的 VLAN|
+|可控的互通	|通过三层交换机路由，受控跨 VLAN 访问|
+
+|模式|支持VLAN|数据包处理方式|应用场景
+|:----|:---|:---|:---|
+|Access|一个VLAN|不带VLAN标签|连接PC、服务器等终端设备
+|Trunk|多个VLAN|都带VLAN标签（除 Native VLAN）|交换机间互联、连接路由器
+|Hybrid|多个VLAN|可以选择是否带VLAN标签|适用于AP、IP电话等设备
+
 ## 交换机
 
 交换机模拟软件ENSP
 
 ```vue
-查看设备型号和版本信息
-display version
+查看设备型号和版本信息、运行时间、系统时间
+display version、device、clock
 
-查看设备运行时间
-display device
-
-查看设备名称和系统时间
-display clock
-
-查看所有接口的简要状态
-display interface brief
-
-查看指定接口的详细信息（如GigabitEthernet 0/0/1）
-display interface GigabitEthernet 0/0/1
-
-查看接口的统计信息（如收发包数量、错误包等）
-display interface counters
+查看所有接口的简要状态、vlanif、统计信息
+display interface brief、vlanif、g 0/0/1、counters
 
 查看所有VLAN、VLAN 10、接口所属的VLAN信息
 display vlan、vlan 10、port vlan
@@ -47,11 +59,8 @@ display dhcp server statistics、dhcp pool
 查看已保存的配置、当前运行的配置
 display saved-configuration、current-configuration
 
-保存当前配置、重启交换机
-save、reboot
-
-查看设备温度、电源状态、风扇状态
-display temperature、power、fan
+查看设备温度、电源状态、风扇状态、保存当前配置、重启交换机
+display temperature、power、fan、save、reboot
 ```
 
 ```vue
@@ -145,7 +154,6 @@ IP地址配置：只有三层接口（如VLAN接口或路由接口）才需要�
 链路聚合（Eth-Trunk）
 创建Eth-Trunk：
 [Huawei] interface Eth-Trunk 1
-[Huawei-Eth-Trunk1] quit
 将接口加入Eth-Trunk：
 [Huawei] interface GigabitEthernet 0/0/1
 [Huawei-GigabitEthernet0/0/1] eth-trunk 1
@@ -233,6 +241,73 @@ IP地址配置：只有三层接口（如VLAN接口或路由接口）才需要�
 [Huawei-ui-vty0-4] protocol inbound ssh
 
 ```
+
+access接口类型。
+通过端口组批量将接口加入VLAN
+
+```vue
+[HUAWEI] port-group pg1  //创建端口组pg1
+[HUAWEI-port-group-pg1] group-member gigabitethernet1/0/1 to gigabitethernet1/0/5
+[HUAWEI-port-group-pg1] port link-type access
+[HUAWEI-port-group-pg1] port default vlan 10
+
+[HUAWEI] vlan 10
+[HUAWEI-vlan10] port gigabitethernet 1/0/1 to 1/0/5
+```
+### 实例
+
+![vlan](/switch.png)
+
+```vue
+PC1 属于 VLAN 10，IP 地址：192.168.10.1/24，网关：192.168.10.254
+PC2 属于 VLAN 20，IP 地址：192.168.20.1/24，网关：192.168.20.254
+SW2A 是二层交换机，负责连接 PC1 和 PC2
+SW3A 是三层交换机，负责 VLAN 10 和 VLAN 20 之间的路由
+SW2A 通过 trunk 口连接 SW3A，承载 VLAN 10 和 VLAN 20 的数据流量
+
+配置 SW2A（二层交换机）
+创建 VLAN 并配置端口
+[SW2A] system-view
+[SW2A] vlan batch 10 20
+
+配置 PC1 和 PC2 所连接的端口为 Access 端口
+[SW2A] interface Ethernet 0/0/1
+[SW2A-Ethernet0/0/1] port link-type access
+[SW2A-Ethernet0/0/1] port default vlan 10
+
+[SW2A] interface Ethernet 0/0/12
+[SW2A-Ethernet0/0/12] port link-type access
+[SW2A-Ethernet0/0/12] port default vlan 20
+[SW2A-Ethernet0/0/12] quit
+
+配置连接 SW3A（三层交换机）的端口为 Trunk
+[SW2A] interface GigabitEthernet 0/0/1
+[SW2A-GigabitEthernet0/0/1] port link-type trunk
+[SW2A-GigabitEthernet0/0/1] port trunk allow-pass vlan 10 20
+[SW2A-GigabitEthernet0/0/1] quit
+
+配置 SW3A（三层交换机）
+创建 VLAN
+[SW3A] system-view
+[SW3A] vlan batch 10 20
+
+配置 VLAN 接口（SVI）
+[SW3A] interface Vlanif10
+[SW3A-Vlanif10] ip address 192.168.10.254 255.255.255.0
+
+[SW3A] interface Vlanif20
+[SW3A-Vlanif20] ip address 192.168.20.254 255.255.255.0
+
+配置 Trunk 端口，允许 VLAN 10 和 VLAN 20 通过
+[SW3A] interface GigabitEthernet 0/0/1
+[SW3A-GigabitEthernet0/0/1] port link-type trunk
+[SW3A-GigabitEthernet0/0/1] port trunk allow-pass vlan 10 20
+[SW3A-GigabitEthernet0/0/1] quit
+确保三层交换机启用 IP 路由
+```
+
+## 防火墙 
+
 ## 路由器
 DDNS、DNS、DHCP、DMZ、UPNP、端口映射
 
