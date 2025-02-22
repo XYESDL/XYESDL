@@ -42,6 +42,12 @@
 
 [解析正则表达式](https://ihateregex.io/)
 
+## 启动盘制作工具
+
+[etcher](https://etcher.balena.io/)
+
+[rufus](https://rufus.ie/zh/)
+
 ## [GitHub](https://github.com/)
 
 GitHub Pages
@@ -71,3 +77,15 @@ git remote add origin https://github.com/user/repo.git    #连接远程仓库（
 git push -u origin main    #推送
 
 ```
+
+## 效率工具
+
+[局域网文件传输 LocalSend](https://localsend.org/zh-CN)
+
+## 博客网站
+
+[茂茂物语](https://notes.fe-mm.com/)
+
+## NAS
+
+[黑群晖引导](https://github.com/RROrg/rr)
