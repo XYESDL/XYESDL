@@ -151,6 +151,10 @@ IP地址配置：只有三层接口（如VLAN接口或路由接口）才需要�
 [Huawei] rip 1
 [Huawei-rip-1] network 192.168.1.0
 
+端口绑定MAC地址
+port-security mac-address命令用来配置Sticky-Config类型的静态安全MAC地址。
+undo port-security mac-address命令用来删除Sticky-Config类型的静态安全MAC地址。
+
 链路聚合（Eth-Trunk）
 创建Eth-Trunk：
 [Huawei] interface Eth-Trunk 1

@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "白蓝的文档"
-  text: "All In One"
-  tagline: 直到，在暴雪时分❄
+  name: "DL的文档"
+  text: "AIO"
+  tagline: ❄❄❄❄❄❄
   image:
     src: /bg.svg
     alt: bg
