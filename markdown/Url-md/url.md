@@ -86,6 +86,16 @@ git push -u origin main    #推送
 
 [茂茂物语](https://notes.fe-mm.com/)
 
+[廖雪峰](https://liaoxuefeng.com/)
+
 ## NAS
 
 [黑群晖引导](https://github.com/RROrg/rr)
+
+[飞牛私有云](https://www.fnnas.com/)
+
+## AI编程工具
+
+[TRAE](https://www.trae.ai/home)
+
+[CURSOR](https://www.cursor.com/)
