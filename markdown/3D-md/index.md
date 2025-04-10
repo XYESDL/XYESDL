@@ -31,7 +31,7 @@
 1.编辑模式新建物体会成为一个整体
 ```
 
-## [fusion-360](https://www.autodesk.com.cn/campaigns/education/fusion-360-online)
+## [Fusion-360](https://www.autodesk.com.cn/campaigns/education/fusion-360-online)
 
 ## CAD
 

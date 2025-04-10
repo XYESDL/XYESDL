@@ -39,10 +39,11 @@ export default defineConfig({
       ]},
       { text: '网络', link: '/markdown/Network-md/index' },
       { text: '汽车改装', link: '/markdown/Car-md/index' },
-      { text: '前后端', items:[
-        {text: '前端',link: '/markdown/Web-md/vue3'} ,
-        {text: '后端',link: '/markdown/Web-md/'},
-        {text: '数据库',link: '/markdown/Web-md/SQL'}
+      { text: '全栈', items:[
+        {text: '前端',link: '/markdown/(Stack-md/vue3'} ,
+        {text: '后端',link: '/markdown/Stack-md/'},
+        {text: '数据库',link: '/markdown/Stack-md/SQL'},
+        {text: 'android',link: '/markdown/Stack-md/Android'}
       ]},
       {text: '绘图',link: '/markdown/3D-md/index'},
       { text: '工具', link: '/markdown/Url-md/url' },

@@ -1,5 +1,7 @@
 # 中控品牌及控制协议
 
+类型：HEX(十六进制0-9、A-F)、ASCLL
+
 ## 品牌
 
 ### [AMX](https://www.amx.com/zh)
