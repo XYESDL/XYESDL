@@ -43,7 +43,8 @@ export default defineConfig({
         {text: '前端',link: '/markdown/(Stack-md/vue3'} ,
         {text: '后端',link: '/markdown/Stack-md/'},
         {text: '数据库',link: '/markdown/Stack-md/SQL'},
-        {text: 'android',link: '/markdown/Stack-md/Android'}
+        {text: 'Android',link: '/markdown/Stack-md/Android'},
+        {text: '开发板',link: '/markdown/Stack-md/Board'}
       ]},
       {text: '绘图',link: '/markdown/3D-md/index'},
       { text: '工具', link: '/markdown/Url-md/url' },
