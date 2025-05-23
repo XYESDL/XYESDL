@@ -61,7 +61,11 @@ new repository --> Settings--> Pages --> Build and deployment --> GitHub Actions
 ```vue
 设置身份
     git config --global user.name "***"
-    git config --global user.email ***
+    git config --global user.email "***"
+删除现有的 origin
+    git remote remove origin
+查看远程仓库列表
+    git remote -v
 设置系统代理
     git config --global http.proxy http://127.0.0.1:7890
     git config --global https.proxy http://127.0.0.1:7890
