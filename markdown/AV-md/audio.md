@@ -10,14 +10,35 @@
 
 ### [DANTE](https://www.audinate.com/ "官网")
 
-Dante [BiLi官方](https://space.bilibili.com/677396871?spm_id_from=333.337.search-card.all.click)
+[Dante BiLi官方](https://space.bilibili.com/677396871?spm_id_from=333.337.search-card.all.click)
+
+系统管理软件
 
 ```vue
-在Dante网络中不要使用网络交换机的EEE功能。
-使用可管理交换机时，关闭使用Dante的所有端口的EEE功能。
-使用不可管理的交换机，请勿使用支持EEE功能的交换机。
-EEE（Energy Efficient Ethernet，高能效以太网）功能是在网络流量稀少时降低以太网设备功耗的技术。还被称为“绿色以太网”或“IEEE802.3az”。
+- Dante Controller 
+- Dante Domain Manager
+- Dante Director
 ```
+[Dante Controller](https://www.getdante.com/products/software-essentials/dante-controller/)
+
+#### 交换机配置要求
+
+```vue
+在Dante网络中不能使用交换机的EEE功能（绿色以太网或IEEE802.3az）。
+
+转发延迟<10μs。
+
+冗余网络需要交换机支持快速生成树协议(RSTP)。
+
+支持QOS、IGMP（Enable IGMP Snooping on all VLANS）
+```
+![QoS](/QoS.png)
+![IGMP](/IGMP.png)
+
+![IP](/IP.png)
+
+![video](/video.png)
+![audio](/audio.png)
 
 配置工具[Dante Controller](https://www.getdante.com/products/software-essentials/dante-controller/ "下载")
 
@@ -28,6 +49,39 @@ EEE（Energy Efficient Ethernet，高能效以太网）功能是在网络流量�
 连接方式：冗余、菊花链
 
 ### AVB
+
+#### 依赖AVB交换机
+
+```vue
+AVB（IEEE 802.1AS/AVB）严格要求通过支持AVB的交换机实现：
+
+时钟同步（PTP精密时间协议）：交换机作为主时钟源分发同步信号。
+
+流量整形（802.1Qav）：直连时无法保障音频流的优先级和带宽预留，可能导致延迟或丢包。
+
+设备角色：AVB设备默认是终端节点（Endpoints），不具备交换或转发能力。
+
+```
+
+#### AVB交换机要求
+
+```vue
+AVB交换机必须支持以下 IEEE 标准：
+
+802.1AS（时间同步）
+
+802.1Qat（流预留协议，SRP）
+
+802.1Qav（流量整形，FQTSS）
+
+802.1BA（AVB系统架构）
+```
+
+#### 交换机选型
+
+```vue
+Cisco、Netgear
+```
 
 ### AES67
 
@@ -48,7 +102,13 @@ X-USB连接配置
 
 ### [Biamp](https://www.biamp.com/)
 
-[Tesira](https://www.biamp.com/support/downloads?products=Tesira&resources=Software/Firmware&languages=English)客户端软件Biamp Canvas
+[Tesira编译、控制-Control、Canvas](https://www.biamp.com/support/downloads?products=Tesira&resources=Software/Firmware&languages=English)
+
+[Tesira_Text_Protocol](https://support.biamp.com/Tesira/Control/Tesira_Text_Protocol)
+
+[Tesira_command_string](https://support.biamp.com/Tesira/Control/Tesira_command_string_calculator)
+
+
 
 ```vue
 1.参数调节

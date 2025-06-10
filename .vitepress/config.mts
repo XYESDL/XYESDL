@@ -44,7 +44,9 @@ export default defineConfig({
         {text: '后端',link: '/markdown/Stack-md/'},
         {text: '数据库',link: '/markdown/Stack-md/SQL'},
         {text: 'Android',link: '/markdown/Stack-md/Android'},
-        {text: '开发板',link: '/markdown/Stack-md/Board'}
+        {text: '开发板',link: '/markdown/Stack-md/Board'},
+        {text: '电子电路',link: '/markdown/Stack-md/Electronic'},
+        {text: '智能家居',link: '/markdown/Stack-md/iot'}
       ]},
       {text: '绘图',link: '/markdown/3D-md/index'},
       { text: '工具', link: '/markdown/Url-md/url' },
