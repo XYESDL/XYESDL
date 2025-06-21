@@ -33,11 +33,13 @@
 支持QOS、IGMP（Enable IGMP Snooping on all VLANS）
 ```
 ![QoS](/QoS.png)
+
 ![IGMP](/IGMP.png)
 
 ![IP](/IP.png)
 
 ![video](/video.png)
+
 ![audio](/audio.png)
 
 配置工具[Dante Controller](https://www.getdante.com/products/software-essentials/dante-controller/ "下载")
